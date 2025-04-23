@@ -1,0 +1,37 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
+}
+
+group = 'meu.app'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    // A classe principal deve ser o caminho completo da sua classe (com pacotes)
+    mainClass = 'system.Main'
+}
+
+javafx {
+    version = "21.0.2"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.44.1.0'
+    implementation 'org.openjfx:javafx-controls:21.0.2'
+    implementation 'org.openjfx:javafx-fxml:21.0.2'
+    implementation 'org.webjars:font-awesome:6.0.0'
+}
+
+
+// Remova a tarefa run personalizada, pois o Gradle já a fornece automaticamente
+tasks.withType(JavaExec) {
+    jvmArgs = [
+        '--module-path', "/opt/javafx/javafx-sdk-21.0.2/lib",
+        '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+}

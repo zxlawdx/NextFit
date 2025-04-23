@@ -1,0 +1,25 @@
+Projeto NextFit - Controle de Alimentos e Login
+Este é um aplicativo desktop desenvolvido com JavaFX para controle de alimentos, oferecendo funcionalidades como login de usuários e gestão de dados alimentícios. O sistema permite o cadastro de usuários, login seguro e o gerenciamento de informações sobre alimentos.
+
+Funcionalidades:
+Cadastro de Usuários: Permite o cadastro de novos usuários com verificação de e-mail único.
+
+Login Seguro: Implementação de um sistema de login utilizando e-mail e senha.
+
+Gestão de Alimentos: Cadastro e gerenciamento de alimentos, com detalhes sobre nome, calorias e outros parâmetros.
+
+Interface Gráfica: Interface amigável e intuitiva desenvolvida com JavaFX, com design moderno e responsivo.
+
+Tecnologias Utilizadas:
+JavaFX para a interface gráfica.
+
+SQLite para armazenamento de dados.
+
+Font Awesome para ícones na interface.
+
+Como Rodar:
+Clone o repositório.
+
+Execute o comando ./gradlew clean build run para compilar e rodar a aplicação.
+
+Acesse o sistema, registre-se e faça login para começar a controlar seus alimentos!
