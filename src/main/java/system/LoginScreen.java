@@ -1,16 +1,23 @@
 package system;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dbsystem.DatabaseConnector;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class LoginScreen {
 
@@ -19,14 +26,13 @@ public class LoginScreen {
     @FXML private PasswordField passwordField;
     @FXML private Button loginButton;
     @FXML private Label statusLabel;
-
+    @FXML private Button logonButton;
     private Connection connection;
 
     @FXML
     private void initialize() {
         connection = DatabaseConnector.getConnection(); // obtém conexão
 
-        welcomeLabel.setText("Bem-vindo ao NextFit!");
 
         loginButton.setOnAction(event -> {
             String email = emailField.getText();
@@ -41,6 +47,11 @@ public class LoginScreen {
                 System.out.println("Falha no login.");
             }
         });
+
+        logonButton.setOnAction(event -> {
+            ScreenManager.trocarTela(event, ScreenManager.getRegisterxmlpath());
+        });
+        
     }
 
 
@@ -59,4 +70,5 @@ public class LoginScreen {
             return false;
         }
     }
+
 }

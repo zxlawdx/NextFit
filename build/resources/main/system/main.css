@@ -32,5 +32,4 @@ Button {
 
 Button:hover {
     -fx-background-color: #45a049;
-    transition-delay: 1ms;
 }
