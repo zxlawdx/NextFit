@@ -20,15 +20,6 @@ public class Main extends Application {
             if (db.conectar()) {
                 // Criar a tabela de usuários
                 db.criarTabelaUsuarios();
-
-                // Registrar um usuário (apenas para exemplo)
-                boolean usuarioCriado = db.registrarUsuario("Law", "law@example.com", "senha123");
-                if (usuarioCriado) {
-                    System.out.println("✅ Usuário criado com sucesso.");
-                } else {
-                    System.out.println("❌ O e-mail já está em uso ou ocorreu um erro.");
-                }
-
                 // Criar as tabelas extras
                 CreateTablesManager tables = new CreateTablesManager(db.getConexao());
                 tables.criarTabelasExtras();
@@ -45,8 +36,7 @@ public class Main extends Application {
             // Configurações da janela
             stage.setTitle("NextFit");
             stage.setScene(scene);
-            stage.setWidth(600);
-            stage.setHeight(400);
+            stage.sizeToScene(); 
             stage.setMinWidth(600);
             stage.setMinHeight(400);
             stage.show();

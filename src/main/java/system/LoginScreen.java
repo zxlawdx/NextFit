@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -41,6 +42,7 @@ public class LoginScreen {
             if (validarLogin(email, password)) {
                 statusLabel.setText("✅ Login bem-sucedido!");
                 System.out.println("Usuário autenticado!");
+                ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
                 // aqui você pode abrir uma nova tela, etc.
             } else {
                 statusLabel.setText("❌ Login inválido.");
