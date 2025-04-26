@@ -9,7 +9,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="system.LoginScreen"
        spacing="20" alignment="CENTER" 
-       prefWidth="800" prefHeight="600" minWidth="600" minHeight="400"  stylesheets="@main.css">
+       prefWidth="600" prefHeight="400" minWidth="600" minHeight="400"  stylesheets="@main.css">
 
        <!-- Label de Boas-vindas -->
        <Label fx:id="welcomeLabel" text="Welcome to NextFit" 

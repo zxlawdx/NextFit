@@ -14,6 +14,8 @@ public class ScreenManager {
     private static final String LoginXmlPath = "/system/mainLayout.fxml";
     private static final String RegisterXmlPath = "/system/RegisterScreen.fxml";
     private static final String DashbpardXmlPath = "/system/dashboard.fxml";
+    private static final String PerfilXmlPath =  "/system/perfil.fxml";
+
     public static void trocarTela(ActionEvent event, final String fxmlPath) {
         try {
             FXMLLoader loader = new FXMLLoader(ScreenManager.class.getResource(fxmlPath));
@@ -37,6 +39,9 @@ public class ScreenManager {
     public static String getDashbpardxmlpath() {
         return DashbpardXmlPath;
     }
-  
+
+    public static String getPerfilxmlpath() {
+        return PerfilXmlPath;
+    }
 }
 

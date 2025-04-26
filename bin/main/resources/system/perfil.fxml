@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="system.Perfil"
+    prefWidth="800" prefHeight="600" minWidth="600" minHeight="400" stylesheets="@perfil.css">
+
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Button text="Sair" fx:id="sairBtn" styleClass="sidebar-button" onAction="#back"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox fx:id="centerbar" alignment="CENTER" spacing="40" maxWidth="500">
+                
+                <!-- Foto, Nome e Botão -->
+                <VBox alignment="CENTER" spacing="15">
+                    <ImageView fx:id="profileImage" preserveRatio="true" />
+                    <Label text="user" fx:id="user_info" styleClass="user-label" />
+                    <Button text="Editar Perfil" fx:id="editProfileBtn" styleClass="edit-profile-button" onAction="#editarPerfil" />
+                </VBox>
+
+                <!-- Informações do usuário -->
+                <VBox fx:id="infoBox" alignment="TOP_LEFT" spacing="15" styleClass="info-box">
+                    <Label text="Email: user001@email.com" fx:id="emailLabel" />
+                    <Label text="Idade: 25" fx:id="idadeLabel" />
+                    <Label text="Peso: 70 kg" fx:id="pesoLabel" />
+                    <Label text="Altura: 1.75 m" fx:id="alturaLabel" />
+                </VBox>
+
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
