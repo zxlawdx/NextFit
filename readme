@@ -1,37 +1,67 @@
-# Projeto NextFit - Controle de Alimentos e Login
+# 📚 NextFit - Wiki Oficial
+Bem-vindo à Wiki do **NextFit**!
 
-![Tela de Login](src/main/appplayer/login.png)
-![Tela de Registro](src/main/appplayer/registerscreen.png)
-![Tela Principal](src/main/appplayer/mainscreen.png)
-![Tela de Perfil](src/main/appplayer/perfil.png)
+Aqui você encontrará informações detalhadas sobre o funcionamento, a instalação e o desenvolvimento do projeto **NextFit - Controle de Alimentos e Login**.
 
-## Sobre o Projeto
+---
 
-O **NextFit** é um aplicativo desktop desenvolvido com **JavaFX** para controle de alimentos, oferecendo funcionalidades como login de usuários e gestão de dados alimentícios.  
-O sistema permite o cadastro de usuários, login seguro e o gerenciamento de informações sobre alimentos.
+## 📋 Sobre o Projeto
+**NextFit** é um aplicativo desktop desenvolvido em **JavaFX**, focado na gestão de alimentos e controle de usuários.
 
-## Funcionalidades
+O projeto permite:
+- Cadastro de usuários com verificação de e-mail único.
+- Login seguro utilizando e-mail e senha.
+- Gerenciamento de alimentos, com dados como nome, calorias, entre outros.
+- Interface gráfica amigável, responsiva e moderna.
 
-- **Cadastro de Usuários:**  
-  Permite o cadastro de novos usuários com verificação de e-mail único.
-  
-- **Login Seguro:**  
-  Implementação de um sistema de login utilizando e-mail e senha, com autenticação segura.
+---
 
-- **Gestão de Alimentos:**  
-  Cadastro e gerenciamento de alimentos, com informações detalhadas como nome, calorias e outros parâmetros.
+## 🚀 Tecnologias Utilizadas
 
-- **Interface Gráfica:**  
-  Interface amigável e intuitiva desenvolvida com **JavaFX**, com design moderno e responsivo.
+- **JavaFX** – para desenvolvimento da interface gráfica.
+- **SQLite** – para armazenamento local dos dados.
+- **Font Awesome** – para ícones na interface.
+- **Gradle** – para automação de build.
 
-## Tecnologias Utilizadas
+---
 
-- JavaFX — Interface gráfica
-- SQLite — Armazenamento de dados local
-- Font Awesome — Ícones personalizados
+📸 Telas do Projeto
 
-## Como Rodar
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/zxlawdx/NextFit.git
+Tela de Login
+
+
+<img src="https://github.com/user-attachments/assets/0ec0f938-8e46-45b7-b31f-d44671f0d43f" style="width: 100%;" />
+
+
+Tela Principal
+
+
+<img src="https://github.com/user-attachments/assets/a4a3c55d-d097-43b2-8181-324dd1b47281" style="width: 100%;" />
+
+
+Tela de Perfil
+
+
+<img src="https://github.com/user-attachments/assets/491e8ad7-9295-41de-ab63-36181a430b64" style="width: 100%;" />
+
+
+Tela de Registro
+
+
+<img src="https://github.com/user-attachments/assets/89cad49e-27ff-48bb-bb95-4e488cfb8529" style="width: 100%;" />
+
+
+📈 Status
+
+
+✅ Projeto em desenvolvimento contínuo.
+
+
+
+✅ Funcionalidades básicas implementadas.
+
+
+### ## # 
+🚀 Próximos passos: Melhorias visuais, otimização de banco de dados e criação de novos recursos.
+
