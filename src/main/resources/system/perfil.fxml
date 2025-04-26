@@ -25,16 +25,16 @@
                 <!-- Foto, Nome e Botão -->
                 <VBox alignment="CENTER" spacing="15">
                     <ImageView fx:id="profileImage" preserveRatio="true" />
-                    <Label text="user" fx:id="user_info" styleClass="user-label" />
+                    <Label fx:id="user_info" styleClass="user-label" />
                     <Button text="Editar Perfil" fx:id="editProfileBtn" styleClass="edit-profile-button" onAction="#editarPerfil" />
                 </VBox>
 
                 <!-- Informações do usuário -->
                 <VBox fx:id="infoBox" alignment="TOP_LEFT" spacing="15" styleClass="info-box">
-                    <Label text="Email: user001@email.com" fx:id="emailLabel" />
-                    <Label text="Idade: 25" fx:id="idadeLabel" />
-                    <Label text="Peso: 70 kg" fx:id="pesoLabel" />
-                    <Label text="Altura: 1.75 m" fx:id="alturaLabel" />
+                    <Label fx:id="emailLabel" />
+                    <Label fx:id="idadeLabel" />
+                    <Label fx:id="pesoLabel" />
+                    <Label fx:id="alturaLabel" />
                 </VBox>
 
             </VBox>

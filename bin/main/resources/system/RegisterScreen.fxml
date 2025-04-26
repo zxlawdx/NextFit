@@ -9,7 +9,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="system.RegisterScreen"
       spacing="20" alignment="CENTER" 
-      prefWidth="600" prefHeight="400" minWidth="600" minHeight="400"
+      prefWidth="600" prefHeight="600" minWidth="600" minHeight="400"
       stylesheets="@main.css">
       
     <!-- Título -->
@@ -24,9 +24,17 @@
     <!-- Campo de senha -->
     <PasswordField fx:id="passwordField" promptText="Password" prefWidth="300" />
 
+    <!-- Campo de idade -->
+    <TextField fx:id="idadeField" promptText="Idade" prefWidth="300" />
+
+    <!-- Campo de peso -->
+    <TextField fx:id="pesoField" promptText="Peso (kg)" prefWidth="300" />
+
+    <!-- Campo de altura -->
+    <TextField fx:id="alturaField" promptText="Altura (m)" prefWidth="300" />
+
     <!-- Botão de criar conta -->
     <Button fx:id="registerUserButton" text="Registrar" onAction="#createAccount" prefWidth="200" />
-
 
     <!-- Botão de voltar -->
     <Button fx:id="buttonBackToLogin" text="Voltar" onAction="#backToLogin" prefWidth="200" />

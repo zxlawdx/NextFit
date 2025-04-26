@@ -68,16 +68,20 @@ public class DatabaseConnector {
     }
 
     // Insere um novo usuário, se o e-mail ainda não estiver cadastrado
-    public boolean registrarUsuario(String nome, String email, String senha) {
+    public boolean registrarUsuario(String nome, String email, String senha, int idade, double peso, double altura) {
         if (emailExiste(email)) {
             return false;
         }
-
-        String insertSql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
+    
+        String insertSql = "INSERT INTO usuarios (nome, email, senha, idade, peso, altura) VALUES (?, ?, ?, ?, ?, ?)";
+    
         try (PreparedStatement stmt = this.conexao.prepareStatement(insertSql)) {
             stmt.setString(1, nome);
             stmt.setString(2, email);
             stmt.setString(3, senha);
+            stmt.setInt(4, idade);
+            stmt.setDouble(5, peso);
+            stmt.setDouble(6, altura);
             stmt.executeUpdate();
             System.out.println("✅ Usuário inserido com sucesso.");
             return true;
@@ -86,6 +90,7 @@ public class DatabaseConnector {
             return false;
         }
     }
+    
 
     // Verifica se o e-mail já está na tabela
     private boolean emailExiste(String email) {
