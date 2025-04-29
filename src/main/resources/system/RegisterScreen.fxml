@@ -6,37 +6,62 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Pos?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="system.RegisterScreen"
-      spacing="20" alignment="CENTER" 
-      prefWidth="600" prefHeight="600" minWidth="600" minHeight="400"
-      stylesheets="@main.css">
-      
-    <!-- Título -->
-    <Label text="Create Account" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="system.RegisterScreen"
+            prefWidth="800" prefHeight="600" minWidth="600" minHeight="400"
+            stylesheets="@main.css">
 
-    <!-- Campo de nome de usuário -->
-    <TextField fx:id="userField" promptText="Username" prefWidth="300" />
+    <right>
+        <VBox fx:id="sidebar" styleClass="sidebar" alignment="TOP_CENTER" spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
 
-    <!-- Campo de e-mail -->
-    <TextField fx:id="emailField" promptText="Email" prefWidth="300" />
+           <!-- Título -->
+          <Label text="Create Account" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
-    <!-- Campo de senha -->
-    <PasswordField fx:id="passwordField" promptText="Password" prefWidth="300" />
+          <!-- Campo de nome de usuário -->
+          <TextField fx:id="userField" promptText="Username" prefWidth="300" />
 
-    <!-- Campo de idade -->
-    <TextField fx:id="idadeField" promptText="Idade" prefWidth="300" />
+          <!-- Campo de e-mail -->
+          <TextField fx:id="emailField" promptText="Email" prefWidth="300" />
 
-    <!-- Campo de peso -->
-    <TextField fx:id="pesoField" promptText="Peso (kg)" prefWidth="300" />
+          <!-- Campo de senha -->
+          <PasswordField fx:id="passwordField" promptText="Password" prefWidth="300" />
 
-    <!-- Campo de altura -->
-    <TextField fx:id="alturaField" promptText="Altura (m)" prefWidth="300" />
+          <!-- Campo de idade -->
+          <TextField fx:id="idadeField" promptText="Idade" prefWidth="300" />
 
-    <!-- Botão de criar conta -->
-    <Button fx:id="registerUserButton" text="Registrar" onAction="#createAccount" prefWidth="200" />
+          <!-- Campo de peso -->
+          <TextField fx:id="pesoField" promptText="Peso (kg)" prefWidth="300" />
 
-    <!-- Botão de voltar -->
-    <Button fx:id="buttonBackToLogin" text="Voltar" onAction="#backToLogin" prefWidth="200" />
+          <!-- Campo de altura -->
+          <TextField fx:id="alturaField" promptText="Altura (m)" prefWidth="300" />
 
-</VBox>
+          <!-- Botão de criar conta -->
+          <Button fx:id="registerUserButton" text="Registrar" onAction="#createAccount" prefWidth="200" />
+
+          <!-- Botão de voltar -->
+          <Button fx:id="buttonBackToLogin" text="Voltar" onAction="#backToLogin" prefWidth="200" />
+      </VBox>
+    </right>
+
+    <center>
+        <VBox fx:id="centerbar" styleClass="sidebar" alignment="CENTER" spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <ImageView>
+                <image>
+                    <Image url="@background/background.png"/>
+                </image>
+            </ImageView>
+        </VBox>
+    </center>
+   
+</BorderPane>
+ 

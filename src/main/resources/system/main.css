@@ -7,26 +7,45 @@
 Label {
     -fx-text-fill: #333;
 }
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-pref-width: 350px; /* Sidebar agora acomoda os campos de 300px */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);
+}
+
+.centerbar{
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-pref-width: 350px; /* Sidebar agora acomoda os campos de 300px */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);
+}
+
 
 TextField, PasswordField {
     -fx-background-color: #fff;
     -fx-border-radius: 5px;
-    -fx-padding: 10px 30px 10px 10px; /* Ajusta o padding para o ícone */
+    -fx-padding: 10px;
     -fx-font-size: 14px;
-    -fx-background-image: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/svgs/solid/user.svg');
-    -fx-background-position: 10px center; /* Posiciona o ícone */
-    -fx-background-repeat: no-repeat;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.3, 0, 0);
 }
 
-PasswordField {
-    -fx-background-image: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/svgs/solid/lock.svg');
+TextField:hover, PasswordField:hover {
+    -fx-background-color: #f9f9f9;
 }
+
 
 Button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-size: 16px;
-    -fx-border-radius: 5px;
+    -fx-border-radius: 10px;
     -fx-padding: 10px;
 }
 

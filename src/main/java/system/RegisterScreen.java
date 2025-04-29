@@ -28,7 +28,7 @@ public class RegisterScreen {
 
     public void handleCreateAccount(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(RegisterScreen.class.getResource("/system/RegisterScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(RegisterScreen.class.getResource(ScreenManager.getRegisterxmlpath()));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             

@@ -13,7 +13,7 @@
             <Button text="Nova Refeição" styleClass="sidebar-button"/>
             <Button text="Histórico" styleClass="sidebar-button"/>
             <Button text="Perfil" styleClass="sidebar-button" onAction="#perfil"/>
-            <Button fx:id="btnSair" text="sair" styleClass="sidebar-button" onAction="#back"/>
+            <Button fx:id="btnSair" text="Sair" styleClass="sidebar-button" onAction="#back"/>
 
         </VBox>
     </left>

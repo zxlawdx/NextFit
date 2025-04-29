@@ -11,7 +11,7 @@ import javafx.scene.Scene;         // <-- IMPORTANTE
 import javafx.stage.Stage;
 
 public class ScreenManager {
-    private static final String LoginXmlPath = "/system/mainLayout.fxml";
+    private static final String LoginXmlPath = "/system/login.fxml";
     private static final String RegisterXmlPath = "/system/RegisterScreen.fxml";
     private static final String DashbpardXmlPath = "/system/dashboard.fxml";
     private static final String PerfilXmlPath =  "/system/perfil.fxml";

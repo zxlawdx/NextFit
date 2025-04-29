@@ -14,39 +14,38 @@ public class Main extends Application {
     public void start(Stage stage) {
         // Cria a instância do DatabaseConnector
         DatabaseConnector db = new DatabaseConnector();
-
+    
         try {
-            // Conecta ao banco de dados
             if (db.conectar()) {
-                // Criar a tabela de usuários
                 db.criarTabelaUsuarios();
-                // Criar as tabelas extras
                 CreateTablesManager tables = new CreateTablesManager(db.getConexao());
                 tables.criarTabelasExtras();
             } else {
                 System.err.println("❌ Erro ao conectar ao banco de dados.");
                 return;
             }
-
-            // Carrega a interface FXML
-            Parent root = FXMLLoader.load(getClass().getResource("/system/mainLayout.fxml"));
+    
+            // 🟢 Carrega o FXML da tela de login
+            Parent root = FXMLLoader.load(getClass().getResource(ScreenManager.getLoginxmlpath()));
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/system/main.css").toExternalForm());
-
-            // Configurações da janela
+    
+            // Configura a janela
             stage.setTitle("NextFit");
             stage.setScene(scene);
-            stage.sizeToScene(); 
+    
+            // Adiciona o ícone do app
+            stage.getIcons().add(new javafx.scene.image.Image(getClass().getResourceAsStream("/system/background/iconApp.png")));
+    
             stage.setMinWidth(600);
             stage.setMinHeight(400);
             stage.show();
-
+    
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Erro ao inicializar a aplicação: " + e.getMessage());
         }
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
