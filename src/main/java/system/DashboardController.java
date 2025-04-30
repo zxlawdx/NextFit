@@ -10,6 +10,7 @@ public class DashboardController implements AllMetodhs{
     @FXML private Button btnHistorico;
     @FXML private Button btnPerfil;
     @FXML private Button btnSair;
+    @FXML private Button btnChat;
 
     public void perfil(ActionEvent event){
         ScreenManager.trocarTela(event, ScreenManager.getPerfilxmlpath());
@@ -20,6 +21,9 @@ public class DashboardController implements AllMetodhs{
     //     // TODO Auto-generated method stub
     //     throw new UnsupportedOperationException("Unimplemented method 'init'");
     // }
+    public void chat(ActionEvent event){
+        ScreenManager.trocarTela(event, ScreenManager.getChatxmlpath());
+    }
 
     @Override
     public void back(ActionEvent event) {

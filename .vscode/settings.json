@@ -17,6 +17,7 @@
   "java.project.referencedLibraries": [
     "/opt/javafx/javafx-sdk-21.0.2/lib/*.jar"
   ],
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "java.configuration.updateBuildConfiguration": "interactive"
 
 }

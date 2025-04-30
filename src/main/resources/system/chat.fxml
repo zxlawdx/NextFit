@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+    <?import javafx.scene.control.*?>
+    <?import javafx.geometry.Insets?>
+    
+    <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.Chat" stylesheets="@chat.css">
+    
+        <!-- Topo com título -->
+        <top>
+            <Label text="Chat NextFit" styleClass="chat-title" BorderPane.alignment="CENTER"/>
+        </top>
+    
+        <!-- Área principal com mensagens -->
+        <center>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <VBox fx:id="vboxMensagens" spacing="10" styleClass="mensagens-container" />
+            </ScrollPane>
+        </center>
+    
+        <!-- Campo de entrada no rodapé -->
+        <bottom>
+            <HBox spacing="10" styleClass="input-area" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <TextArea fx:id="txtPergunta" promptText="Digite sua mensagem..." wrapText="true" prefRowCount="2" styleClass="input-text"/>
+                <Button text="Enviar" onAction="#onEnviarClick" styleClass="botao-enviar"/>
+            </HBox>
+        </bottom>
+    
+    </BorderPane>
+    

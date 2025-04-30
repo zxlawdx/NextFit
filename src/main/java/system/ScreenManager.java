@@ -15,6 +15,7 @@ public class ScreenManager {
     private static final String RegisterXmlPath = "/system/RegisterScreen.fxml";
     private static final String DashbpardXmlPath = "/system/dashboard.fxml";
     private static final String PerfilXmlPath =  "/system/perfil.fxml";
+    private static final String ChatXmlPath = "/system/chat.fxml";
 
     public static void trocarTela(ActionEvent event, final String fxmlPath) {
         try {
@@ -42,6 +43,10 @@ public class ScreenManager {
 
     public static String getPerfilxmlpath() {
         return PerfilXmlPath;
+    }
+    
+    public static String getChatxmlpath() {
+        return ChatXmlPath;
     }
 }
 

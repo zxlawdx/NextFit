@@ -1,0 +1,84 @@
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Título do chat */
+.chat-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 20px;
+    -fx-background-color: #ffffff;
+    -fx-alignment: center;
+    -fx-background-radius: 10px 10px 0 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+/* Scroll das mensagens */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Container das mensagens */
+.mensagens-container {
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-background-color: #f9f9f9;
+}
+
+/* Estilo de cada mensagem */
+.mensagem {
+    -fx-padding: 12px 16px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 14px;
+    -fx-wrap-text: true;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 2, 0, 0, 1);
+}
+
+/* Mensagem enviada pelo usuário */
+.mensagem-usuario {
+    -fx-background-color: #DCF8C6;
+    -fx-alignment: center-right;
+    -fx-text-fill: #333;
+}
+
+/* Mensagem de resposta */
+.mensagem-resposta {
+    -fx-background-color: white;
+    -fx-alignment: center-left;
+    -fx-text-fill: #333;
+}
+
+/* Caixa de entrada de texto */
+.input-area {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-background-radius: 0 0 10px 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, -2);
+}
+
+.input-text {
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10px;
+    -fx-padding: 8px;
+}
+
+/* Botão de envio */
+.botao-enviar {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+}
+
+.botao-enviar:hover {
+    -fx-background-color: #45a049;
+}

@@ -25,13 +25,37 @@ dependencies {
     implementation 'org.openjfx:javafx-controls:21.0.2'
     implementation 'org.openjfx:javafx-fxml:21.0.2'
     implementation 'org.webjars:font-awesome:6.0.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
 
+// Tarefa para rodar o servidor Python com FastAPI
+task runPythonServer(type: Exec) {
+    commandLine 'python', 'system/integration/main.py'  // Altere o caminho para o seu main.py
+    workingDir './'  // Diretório onde o server.py está localizado
+    doLast {
+        println 'Servidor FastAPI (Python) está rodando...'
+    }
+}
 
-// Remova a tarefa run personalizada, pois o Gradle já a fornece automaticamente
+// Tarefa para rodar o aplicativo JavaFX após rodar o servidor Python
+task runApp(type: JavaExec) {
+    dependsOn runPythonServer  // Garante que o servidor Python seja executado primeiro
+    main = 'system.Main' // Caminho da sua classe principal no Java
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = [
+        '--module-path', "/opt/javafx/javafx-sdk-21.0.2/lib",  // Ajuste para o seu caminho do JavaFX
+        '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
+    doLast {
+        println 'Aplicativo JavaFX está rodando...'
+    }
+}
+
+// Ajusta a configuração do JavaFX
 tasks.withType(JavaExec) {
     jvmArgs = [
-        '--module-path', "/opt/javafx/javafx-sdk-21.0.2/lib",
+        '--module-path', "/opt/javafx/javafx-sdk-21.0.2/lib",  // Altere conforme o seu caminho do JavaFX
         '--add-modules', 'javafx.controls,javafx.fxml'
     ]
 }
