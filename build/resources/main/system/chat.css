@@ -82,3 +82,12 @@
 .botao-enviar:hover {
     -fx-background-color: #45a049;
 }
+
+.resposta-sistema {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+    -fx-background-color: #e0f7fa;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}

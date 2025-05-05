@@ -21,16 +21,23 @@
             </ScrollPane>
         </center>
     
-        <!-- Campo de entrada no rodapé -->
         <bottom>
-            <HBox spacing="10" styleClass="input-area" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
-                <padding>
-                    <Insets top="10" right="10" bottom="10" left="10"/>
-                </padding>
-                <TextArea fx:id="txtPergunta" promptText="Digite sua mensagem..." wrapText="true" prefRowCount="2" styleClass="input-text"/>
-                <Button text="Enviar" onAction="#onEnviarClick" styleClass="botao-enviar"/>
-            </HBox>
+            <VBox spacing="5" BorderPane.alignment="CENTER">
+                <!-- Área de resposta fixa -->
+                <Label fx:id="txtResposta" text="Resposta do sistema aparecerá aqui..." 
+                       wrapText="true" styleClass="resposta-sistema"/>
+                
+                <!-- Área de entrada -->
+                <HBox spacing="10" styleClass="input-area" alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <TextArea fx:id="txtPergunta" promptText="Digite sua mensagem..." wrapText="true" prefRowCount="2" styleClass="input-text"/>
+                    <Button text="Enviar" onAction="#onEnviarClick" styleClass="botao-enviar"/>
+                </HBox>
+            </VBox>
         </bottom>
+        
     
     </BorderPane>
     
