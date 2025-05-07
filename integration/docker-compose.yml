@@ -1,0 +1,43 @@
+services:
+  javaapp:
+    build:
+      context: .
+      dockerfile: nextfit.dockerfile
+    command: ["./gradlew", "run"]
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    depends_on:
+      - fastapi
+      - ollama
+    tty: true
+    stdin_open: true
+    networks:
+      - integration-net
+
+  fastapi:
+    build:
+      context: .
+      dockerfile: integration.dockerfile
+    ports:
+      - "8001:8000"
+    networks:
+      - integration-net
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - integration-net
+
+volumes:
+  ollama-data:
+
+networks:
+  integration-net:
+    driver: bridge

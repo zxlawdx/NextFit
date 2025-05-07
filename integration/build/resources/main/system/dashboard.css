@@ -1,0 +1,60 @@
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 20px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.label-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.label-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.label-nutrient {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4CAF50;
+}
+
+.card {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-background-radius: 10px 0 0 10px;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-alignment: center-left;
+    -fx-padding: 10px 20px;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+.button-track {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 6px;
+}
+
+.button-track:hover {
+    -fx-background-color: #45a049;
+}

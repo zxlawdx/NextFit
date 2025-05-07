@@ -1,0 +1,38 @@
+# 📚 NextFit - Wiki Oficial
+Bem-vindo à Wiki do **NextFit**!
+
+Aqui você encontrará informações detalhadas sobre o funcionamento, a instalação e o desenvolvimento do projeto **NextFit - Controle de Alimentos e Login**.
+
+---
+
+## 📋 Sobre o Projeto
+**NextFit** é um aplicativo desktop desenvolvido em **JavaFX**, focado na gestão de alimentos e controle de usuários.
+
+O projeto permite:
+- Cadastro de usuários com verificação de e-mail único.
+- Login seguro utilizando e-mail e senha.
+- Gerenciamento de alimentos, com dados como nome, calorias, entre outros.
+- Interface gráfica amigável, responsiva e moderna.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **JavaFX** – para desenvolvimento da interface gráfica.
+- **SQLite** – para armazenamento local dos dados.
+- **Font Awesome** – para ícones na interface.
+- **Gradle** – para automação de build.
+
+---
+
+
+✅ Projeto em desenvolvimento contínuo.
+
+
+
+✅ Funcionalidades básicas implementadas.
+
+
+### ## # 
+🚀 Próximos passos: Melhorias visuais, otimização de banco de dados e criação de novos recursos.
+
