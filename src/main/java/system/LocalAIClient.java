@@ -1,5 +1,4 @@
 package system;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -9,8 +8,9 @@ import com.google.gson.*;
 
 public class LocalAIClient {
 
-    private static final String API_URL = "http://localhost:11434/api/generate"; // Ollama local
-    private static final String MODEL_NAME = "mistral"; // Modelo leve para IA local
+    private static final String API_URL = "http://localhost:8001/chat";
+
+    private static final String MODEL_NAME = "llama3"; // Modelo leve para IA local
 
     public static String enviarMensagem(String mensagemUsuario) throws IOException {
         // Monta JSON manualmente

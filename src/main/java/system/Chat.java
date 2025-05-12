@@ -4,48 +4,91 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.VBox;
 import com.google.gson.*;
 
 public class Chat {
 
+    @FXML private ScrollPane scrollPane;
     @FXML private TextArea txtPergunta;
-    @FXML private Label txtResposta;  // Agora está correto com Label
+    
+    @FXML private VBox chatContainer; // Novo VBox para as respostas
 
     @FXML
-    private void onEnviarClick() {
+    private void backToMainScreen(ActionEvent event){
+        ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
+    }
+    
+    @FXML
+    private void onEnviarClick(){
         String pergunta = txtPergunta.getText();
+        txtPergunta.clear();
+        // Cria um label para a pergunta e adiciona ao chat
+        Label perguntaLabel = new Label("Você: " + pergunta);
+        perguntaLabel.getStyleClass().add("chat-message-label");
+        chatContainer.getChildren().add(perguntaLabel);
+
 
         new Thread(() -> {
             try {
+                // Envia a mensagem e recebe a resposta JSON
                 String respostaJson = enviarMensagem(pergunta);
+                
+                // Processa o JSON para extrair a resposta desejada
                 String resposta = parsearResposta(respostaJson);
-                Platform.runLater(() -> txtResposta.setText(resposta));  // Label usa setText normalmente
+                
+                // Atualiza a UI com a resposta obtida
+                Platform.runLater(() -> {
+                    // Cria um label para a resposta e adiciona ao chat
+                    Label respostaLabel = new Label("IA: " + resposta);
+                    respostaLabel.getStyleClass().add("chat-message-label-ai");
+                    chatContainer.getChildren().add(respostaLabel);
+                });
             } catch (IOException e) {
-                Platform.runLater(() -> txtResposta.setText("Erro ao conectar ao servidor: " + e.getMessage()));
+                // Em caso de erro, exibe a mensagem de erro
+                Platform.runLater(() -> {
+                    Label erroLabel = new Label("Erro ao conectar ao servidor: " + e.getMessage());
+                    chatContainer.getChildren().add(erroLabel);
+                });
             }
         }).start();
+    }
+
+    private void adicionarMensagem(String texto, boolean usuario) {
+        Label label = new Label(texto);
+        label.setWrapText(true);
+        label.getStyleClass().addAll("mensagem", usuario ? "mensagem-usuario" : "mensagem-resposta");
+        chatContainer.getChildren().add(label);
+    }
+
+    private void scrollAutomatico() {
+        Platform.runLater(() -> scrollPane.setVvalue(1.0));
     }
 
     private String enviarMensagem(String pergunta) throws IOException {
         JsonObject jsonRequest = new JsonObject();
         jsonRequest.addProperty("prompt", pergunta);
 
-        String url = "http://localhost:8000/chat";
+        String url = "http://fastapi:8000/chat";
 
         HttpURLConnection conexao = (HttpURLConnection) new URL(url).openConnection();
         conexao.setRequestMethod("POST");
         conexao.setRequestProperty("Content-Type", "application/json");
         conexao.setDoOutput(true);
+
         try (OutputStream os = conexao.getOutputStream()) {
-            byte[] input = jsonRequest.toString().getBytes("UTF-8");
+            byte[] input = jsonRequest.toString().getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
         }
 
@@ -55,7 +98,7 @@ public class Chat {
                 StringBuilder resposta = new StringBuilder();
                 String linha;
                 while ((linha = br.readLine()) != null) {
-                    resposta.append(linha.trim());
+                    resposta.append(linha).append("\n");
                 }
                 throw new IOException("Erro ao conectar à API: " + statusCode + " - " + resposta.toString());
             }
@@ -65,14 +108,38 @@ public class Chat {
             StringBuilder resposta = new StringBuilder();
             String linha;
             while ((linha = br.readLine()) != null) {
-                resposta.append(linha.trim());
+                resposta.append(linha).append("\n");
             }
             return resposta.toString();
         }
     }
 
-    private String parsearResposta(String json) {
-        JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
-        return obj.get("response").getAsString();
+    private String parsearResposta(String jsonND) {
+        StringBuilder respostaCompleta = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new StringReader(jsonND))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                linha = linha.trim();
+                if (linha.isEmpty()) continue;
+
+                JsonElement jsonElement = JsonParser.parseString(linha);
+                if (!jsonElement.isJsonObject()) continue;
+
+                JsonObject obj = jsonElement.getAsJsonObject();
+
+                if (obj.has("response")) {
+                    respostaCompleta.append(obj.get("response").getAsString());
+                }
+
+                if (obj.has("done") && obj.get("done").getAsBoolean()) {
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            return "Erro ao processar resposta da IA.";
+        }
+
+        return respostaCompleta.toString().trim();
     }
 }
