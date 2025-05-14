@@ -22,8 +22,7 @@ public class Chat {
 
     @FXML private ScrollPane scrollPane;
     @FXML private TextArea txtPergunta;
-    
-    @FXML private VBox chatContainer; // Novo VBox para as respostas
+    @FXML private VBox chatContainer;
 
     @FXML
     private void backToMainScreen(ActionEvent event){

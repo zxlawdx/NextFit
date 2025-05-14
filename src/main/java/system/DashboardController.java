@@ -12,15 +12,12 @@ public class DashboardController implements AllMetodhs{
     @FXML private Button btnSair;
     @FXML private Button btnChat;
 
+    @FXML
     public void perfil(ActionEvent event){
         ScreenManager.trocarTela(event, ScreenManager.getPerfilxmlpath());
     }
 
-    // @Override
-    // public void init() {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'init'");
-    // }
+    @FXML
     public void chat(ActionEvent event){
         ScreenManager.trocarTela(event, ScreenManager.getChatxmlpath());
     }
@@ -28,6 +25,11 @@ public class DashboardController implements AllMetodhs{
     @Override
     public void back(ActionEvent event) {
         ScreenManager.trocarTela(event, ScreenManager.getLoginxmlpath());
+    }
+
+    @FXML
+    public void novaRefeicao(ActionEvent event){
+        ScreenManager.trocarTela(event, ScreenManager.getRefeicaoxmlpath());
     }
     
 }

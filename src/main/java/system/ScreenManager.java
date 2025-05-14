@@ -5,9 +5,9 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;           // <-- IMPORTANTE
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;         // <-- IMPORTANTE
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ScreenManager {
@@ -16,6 +16,7 @@ public class ScreenManager {
     private static final String DashbpardXmlPath = "/system/dashboard.fxml";
     private static final String PerfilXmlPath =  "/system/perfil.fxml";
     private static final String ChatXmlPath = "/system/chat.fxml";
+    private static final String RefeicaoXmlPath = "/system/refeicao.fxml";
 
     public static void trocarTela(ActionEvent event, final String fxmlPath) {
         try {
@@ -47,6 +48,10 @@ public class ScreenManager {
     
     public static String getChatxmlpath() {
         return ChatXmlPath;
+    }
+
+    public static String getRefeicaoxmlpath() {
+        return RefeicaoXmlPath;
     }
 }
 

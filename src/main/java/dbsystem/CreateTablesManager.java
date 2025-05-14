@@ -18,9 +18,11 @@ public class CreateTablesManager {
                 CREATE TABLE IF NOT EXISTS alimentos (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome TEXT NOT NULL,
+                    tipo TEXT NOT NULL,
                     proteinas REAL,
                     carboidratos REAL,
-                    gorduras REAL
+                    gorduras REAL,
+                    kcal REAL
                 );
             """;
             stmt.execute(sql);

@@ -12,7 +12,7 @@
             <Label text="NextFit" styleClass="sidebar-title"/>
             <Separator/>
             <Button text="Dashboard" styleClass="sidebar-button"/>
-            <Button text="Nova Refeição" styleClass="sidebar-button"/>
+            <Button text="Nova Refeição" styleClass="sidebar-button" onAction="#novaRefeicao"/>
             <Button text="Histórico" styleClass="sidebar-button"/>
             <Button text="Perfil" styleClass="sidebar-button" onAction="#perfil"/>
             <Button fx:id="btnChat" text="Chat" styleClass="sidebar-button" onAction="#chat"/>
