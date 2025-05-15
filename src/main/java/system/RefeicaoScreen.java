@@ -5,6 +5,7 @@ import dbsystem.AlimentosDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -12,10 +13,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class RefeicaoScreen {
+public class RefeicaoScreen implements AllMetodhs{
 
     @FXML private Button CriarRefeicao;
     @FXML private TextField nomeAlimento;
+    @FXML private TextField tipoAlimento;
     @FXML private TableView<Alimentos> tableView; // <- Esse precisa estar definido no FXML
     @FXML private TableColumn<Alimentos, String> nomeColumn;
     @FXML private TableColumn<Alimentos, String> tipoColumn;
@@ -28,11 +30,10 @@ public class RefeicaoScreen {
 
     @FXML
     public void initialize() {
-        // Carrega dados do banco
         ObservableList<Alimentos> alimentos = AlimentosDAO.carregarAlimentos();
         alimentosFiltrados = new FilteredList<>(alimentos, p -> true);
 
-        // Configura colunas da tabela
+        
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tipoColumn.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         proteinasColumn.setCellValueFactory(new PropertyValueFactory<>("proteinas"));
@@ -53,10 +54,24 @@ public class RefeicaoScreen {
                 return alimento.getNome().toLowerCase().contains(filtro);
             });
         });
+
+        tipoAlimento.textProperty().addListener((obs, antigoValor, novoValor) -> {
+            alimentosFiltrados.setPredicate(alimento -> {
+                if (novoValor == null || novoValor.isEmpty()) {
+                    return true;
+                }
+                String filtro = novoValor.toLowerCase();
+                return alimento.getTipo().toLowerCase().contains(filtro);
+            });
+        });
+        
+
     }
 
-    @FXML
-    private void BuscarAlimento() {
-        // Não precisa fazer nada aqui porque o filtro já está vinculado ao campo de texto
+
+    @Override
+    public void back(ActionEvent event) {
+        ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
     }
+
 }
