@@ -1,0 +1,123 @@
+/* main.css */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #f4f6fa, #e9ecf1);
+    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    -fx-padding: 20px;
+}
+
+Label {
+    -fx-text-fill: #333;
+}
+.sidebar {
+    -fx-text-fill: #333;
+    -fx-background-color: #FAFAFA;
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-background-radius: 10px 0px 0px 10px;
+    -fx-pref-width: 350px; /* Sidebar agora acomoda os campos de 300px */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);
+}
+
+.leftbar {
+    -fx-background-color: linear-gradient(to top right, #ffffff, #fafafa);
+    -fx-text-fill: #ffffff;
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-background-radius: 10px 0px 0px 10px;
+    -fx-pref-width: 350px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0.3, 0, 0);
+}
+
+.rightbar{
+    -fx-text-fill: #333;
+    -fx-background-color: linear-gradient(to bottom right, #03ff08, #2e2a2a); 
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-background-radius: 0px 10px 10px 0px;
+    -fx-pref-width: 350px; /* Sidebar agora acomoda os campos de 300px */
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.1), 10, 0.5, 0, 0);
+}
+
+
+.infoText {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: normal;
+    -fx-alignment: center;
+    -fx-line-spacing: 4px;
+}
+
+
+
+TextField, PasswordField {
+    -fx-background-color: #FAF0E6;  
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.3, 0, 0);
+}
+
+TextField:hover, PasswordField:hover {
+    -fx-background-color: #f9f9f9;
+}
+
+.button-right{
+    -fx-background-color: linear-gradient(to bottom right, #00ff08, #2e2a2a);
+    -fx-text-fill: #FAF0E6;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 14px 26px;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(0, 0, 0, 0.2);
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.3, 0, 4);
+    -fx-cursor: hand;
+    -fx-translate-y: 0;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.button-left {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f1f1f1);
+    -fx-text-fill: #4CAF50;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 14px 26px;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(0, 0, 0, 0.2);
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.3, 0, 4);
+    -fx-cursor: hand;
+    -fx-translate-y: 0;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+
+.button-right:hover {
+    -fx-background-color: linear-gradient(to bottom, #45a049, #388e3c);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 6, 0.4, 0, 3);
+    -fx-translate-y: -2px;
+}
+
+.button-left:hover {
+    -fx-background-color: linear-gradient(to bottom, #45a049, #388e3c);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 6, 0.4, 0, 3);
+    -fx-translate-y: -2px;
+}
+
+.button-right:pressed {
+    -fx-background-color: #4CAF50;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.2, 0, 1);
+    -fx-translate-y: 4px;
+}
+
+.button-left:pressed {
+    -fx-background-color: #4CAF50;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.2, 0, 1);
+    -fx-translate-y: 4px;
+}
+

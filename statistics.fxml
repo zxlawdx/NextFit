@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="system.DashboardController"
+            prefHeight="600.0" prefWidth="900.0" stylesheets="@statistics.css">
+
+    <!-- Sidebar com filtros -->
+    <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="220.0"
+          AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <children>
+            <Label styleClass="sidebar-title" text="Filtros" />
+            <Label text="Início:" styleClass="date-label" />
+            <DatePicker fx:id="startDatePicker" styleClass="date-picker" />
+            <Label text="Término:" styleClass="date-label" />
+            <DatePicker fx:id="endDatePicker" styleClass="date-picker" />
+            <Button text="Aplicar" styleClass="sidebar-button" onAction="#aplicarFiltro" />
+        </children>
+    </VBox>
+
+    <!-- Conteúdo principal -->
+    <VBox fx:id="mainContent" styleClass="main-content"
+          AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="0.0">
+        <children>
+            <Label text="Resumo de Consumo Mensal" styleClass="dashboard-title" />
+
+            <BarChart fx:id="nutrientChart" title="Consumo de Nutrientes por Mês" legendVisible="true">
+                <xAxis>
+                    <CategoryAxis fx:id="monthAxis" label="Mês" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="valueAxis" label="Gramas / Calorias" />
+                </yAxis>
+            </BarChart>
+        </children>
+    </VBox>
+
+</AnchorPane>
