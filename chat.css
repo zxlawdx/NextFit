@@ -1,0 +1,122 @@
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Header com botão voltar */
+.chat-header {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+    -fx-background-radius: 10px 10px 0 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+/* Botão Voltar */
+.botao-voltar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.botao-voltar:hover {
+    -fx-text-fill: #4CAF50;
+}
+
+/* Título do chat */
+.chat-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Scroll das mensagens */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Container das mensagens */
+.mensagens-container {
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-background-color: #4dc553;
+}
+
+/* Estilo de cada mensagem */
+.mensagem {
+    -fx-padding: 10px 14px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 14px;
+    -fx-wrap-text: true;
+    -fx-max-width: 400px;
+}
+
+.mensagem-usuario {
+    -fx-background-color:rgb(86, 129, 52);
+    -fx-alignment: CENTER_RIGHT;
+    -fx-translate-x: 150px; /* ajusta alinhamento à direita */
+}
+
+.mensagem-resposta {
+    -fx-background-color: #5bc76d;
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+/* Área de entrada */
+.input-area {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-background-radius: 0 0 10px 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, -2);
+}
+
+.input-text {
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10px;
+    -fx-padding: 8px;
+}
+
+.chat-message-label {
+    -fx-text-fill: black;
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 10px;
+    -fx-background-radius: 8px;
+}
+
+.chat-message-label-ai {
+    -fx-text-fill: rgb(51, 51, 51);
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 10px;
+    -fx-background-radius: 8px;
+}
+
+/* Botão enviar */
+.botao-enviar {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+}
+
+.botao-enviar:hover {
+    -fx-background-color: #45a049;
+}
+
+/* Área de resposta */
+.resposta-area {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+    -fx-background-color: #e0f7fa;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}

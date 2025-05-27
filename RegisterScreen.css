@@ -1,0 +1,82 @@
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+/* Área esquerda (Welcome) */
+.leftbar {
+    -fx-background-color: linear-gradient(to bottom right, #a8e6cf, #81c784);
+}
+
+/* Área direita (formulário) */
+.rightbar {
+    -fx-background-color: #ffffff;
+}
+
+/* Texto de boas-vindas */
+#welcomeLabel {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Subtexto */
+.infoText {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+/* Título "Create Account" */
+#welcomeLabel2 {
+    -fx-font-size: 24px;
+    -fx-text-fill: #4caf50;
+    -fx-font-weight: bold;
+}
+
+/* Campos de texto */
+TextField, PasswordField {
+    -fx-background-color: #f1f8e9;
+    -fx-border-color: #c8e6c9;
+    -fx-border-radius: 6px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+TextField:focused, PasswordField:focused {
+    -fx-border-color: #81c784;
+}
+
+/* Botão SIGN IN */
+.button-left {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 25px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.button-left:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botão SIGN UP */
+.button-right {
+    -fx-background-color: linear-gradient(to right, #66bb6a, #43a047);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 25px;
+    -fx-cursor: hand;
+}
+
+.button-right:hover {
+    -fx-background-color: #388e3c;
+}
+
+.button-left:pressed, .button-right:pressed {
+    -fx-translate-y: 2px;
+}
