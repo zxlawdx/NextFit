@@ -1,41 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="system.RefeicaoScreen"
-            stylesheets="@refeicao.css" prefWidth="800" prefHeight="600" minWidth="600" minHeight="400">
-        <center>
-            <VBox spacing="15.0" styleClass="info-box" BorderPane.alignment="CENTER">
-                <HBox spacing="10.0">
-                    <Button text="Voltar" styleClass="button" onAction="#back"/>
-                    <Label text="Buscar alimento:" styleClass="label"/>
-                    <TextField fx:id="nomeAlimento" promptText="Digite o nome do alimento..." styleClass="text-field"/>
-    
-                    <Label text="Tipo:" styleClass="label"/>
-                    <TextField fx:id="tipoAlimento" promptText="Ex: Proteína, Carbo..." styleClass="text-field"/>
-    
-                    <Label text="Max Kcal:" styleClass="label"/>
-                    <TextField fx:id="maxKcal" promptText="Ex: 500" styleClass="text-field"/>
-    
-                    <Button fx:id="filtrarButton" text="Filtrar" styleClass="button"/>
-                </HBox>
-                <TableView fx:id="tableView" prefHeight="400.0" prefWidth="900.0" styleClass="table-view">
-                    <columns>
-                        <TableColumn fx:id="nomeColumn" text="Nome" prefWidth="120.0" styleClass="column-header-style"/>
-                        <TableColumn fx:id="tipoColumn" text="Tipo" prefWidth="120.0" styleClass="column-header-style"/>
-                        <TableColumn fx:id="proteinasColumn" text="Proteínas" prefWidth="100.0" styleClass="column-header-style"/>
-                        <TableColumn fx:id="carboidratosColumn" text="Carboidratos" prefWidth="100.0" styleClass="column-header-style"/>
-                        <TableColumn fx:id="gordurasColumn" text="Gorduras" prefWidth="100.0" styleClass="column-header-style"/>
-                        <TableColumn fx:id="kcalColumn" text="Kcal" prefWidth="100.0" styleClass="column-header-style"/>
-                    </columns>
-                </TableView>
-            </VBox>
-        </center>
-</BorderPane>
+<AnchorPane prefHeight="550.0" prefWidth="800.0" styleClass="info-box" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.RefeicaoController">
+
+    <children>
+        <!-- Tipo de refeição -->
+        <Label layoutX="30.0" layoutY="20.0" styleClass="label" text="Tipo de Refeição:" />
+        <ComboBox fx:id="tipoRefeicaoCombo" layoutX="150.0" layoutY="18.0" prefWidth="200.0" styleClass="combo-box">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Café da Manhã" />
+               <String fx:value="Almoço" />
+               <String fx:value="Jantar" />
+               <String fx:value="Personalizada" />
+            </FXCollections>
+         </items>
+
+        </ComboBox>
+
+        <!-- Buscar alimento -->
+        <Label layoutX="30.0" layoutY="60.0" styleClass="label" text="Buscar Alimento:" />
+        <TextField fx:id="nomeAlimento" layoutX="150.0" layoutY="58.0" prefWidth="200.0" promptText="Ex: Arroz" styleClass="text-field" />
+
+        <!-- Filtro por Kcal -->
+        <Label layoutX="380.0" layoutY="60.0" styleClass="label" text="Max Kcal:" />
+        <TextField fx:id="maxKcal" layoutX="450.0" layoutY="58.0" prefWidth="80.0" promptText="Ex: 500" styleClass="text-field" />
+
+        <!-- Botão filtrar -->
+        <Button fx:id="filtrarButton" layoutX="550.0" layoutY="56.0" styleClass="button" text="Filtrar" />
+
+        <!-- Tabela de alimentos -->
+        <TableView fx:id="tableView" layoutX="30.0" layoutY="100.0" prefHeight="350.0" prefWidth="740.0" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="nomeColumn" prefWidth="150.0" styleClass="column-header-style" text="Nome" />
+                <TableColumn fx:id="tipoColumn" prefWidth="100.0" styleClass="column-header-style" text="Tipo" />
+                <TableColumn fx:id="proteinasColumn" prefWidth="100.0" styleClass="column-header-style" text="Proteínas" />
+                <TableColumn fx:id="carboidratosColumn" prefWidth="100.0" styleClass="column-header-style" text="Carboidratos" />
+                <TableColumn fx:id="gordurasColumn" prefWidth="100.0" styleClass="column-header-style" text="Gorduras" />
+                <TableColumn fx:id="kcalColumn" prefWidth="100.0" styleClass="column-header-style" text="Kcal" />
+            </columns>
+        </TableView>
+
+        <!-- Botões -->
+        <Button fx:id="adicionarAlimentoButton" layoutX="30.0" layoutY="470.0" styleClass="button" text="Adicionar Alimento" />
+        <Button fx:id="removerAlimentoButton" layoutX="200.0" layoutY="470.0" styleClass="button" text="Remover Selecionado" />
+        <Button fx:id="salvarRefeicaoButton" layoutX="600.0" layoutY="470.0" styleClass="button-green" text="Salvar Refeição" />
+        <Button fx:id="criarNovoAlimentoButton" layoutX="400.0" layoutY="470.0" onAction="#abrirTelaNovoAlimento" styleClass="button" text="Criar Novo Alimento" />
+
+
+    </children>
+   <stylesheets>
+      <URL value="@refeicao.css" />
+      <URL value="@css_pronto/refeicao.css" />
+   </stylesheets>
+</AnchorPane>
