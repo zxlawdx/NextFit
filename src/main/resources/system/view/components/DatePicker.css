@@ -1,0 +1,44 @@
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 6 10;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.date-picker:focused {  
+    -fx-border-color: #4CAF50;
+    -fx-effect: dropshadow(gaussian, rgba(76, 175, 80, 0.3), 8, 0, 0, 2);
+    
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-padding: 2 0;
+    -fx-border: none;
+    -fx-text-fill: #333;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #e0f2f1;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #4CAF50;
+}
+
+.date-picker-popup {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.1, 0, 2);
+}

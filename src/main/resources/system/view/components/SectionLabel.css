@@ -1,0 +1,12 @@
+.label-section-title {
+    -fx-font-weight: bold;
+    -fx-text-fill:#A5F000;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.label-nutrient {
+    -fx-font-weight: normal;
+    -fx-text-fill: #888;
+    -fx-font-size: 13px;
+}

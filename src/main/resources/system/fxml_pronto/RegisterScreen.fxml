@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="832.0" stylesheets="@css_pronto/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="419.0" styleClass="leftbar" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="welcomeLabel" layoutX="77.0" layoutY="54.0" style="-fx-font-size: 24px; -fx-text-fill: #ffffff;" text="Welcome Back to NextFit" />
+            <Button fx:id="loginButton" layoutX="98.0" layoutY="436.0" prefWidth="200" styleClass="button-left" text="SIGN IN" />
+            <Label layoutX="88.0" layoutY="111.0" prefHeight="51.0" prefWidth="244.0" styleClass="infoText" text="   To Keep connected with us please " />
+            <Label layoutX="88.0" layoutY="162.0" prefHeight="51.0" prefWidth="243.0" styleClass="infoText" text="     login with your personal info  " />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="608.0" prefWidth="413.0" styleClass="rightbar" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="emailField1" layoutX="82.0" layoutY="236.0" prefWidth="280" promptText="Email" style="-fx-background-color: transparent;" />
+            <PasswordField fx:id="passwordField1" layoutX="78.0" layoutY="346.0" prefWidth="280" promptText="Password" />
+            <ImageView fitHeight="20" fitWidth="20" layoutX="24.0" layoutY="240.0" preserveRatio="true">
+               <image>
+                  <Image url="@background/user.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="78.0" layoutY="285.0" prefHeight="38.0" prefWidth="280.0" promptText="Username" />
+            <Button fx:id="logonButton" layoutX="82.0" layoutY="434.0" prefWidth="200" styleClass="button-right" text="SIGN UP" />
+            <Label fx:id="welcomeLabel2" layoutX="126.0" layoutY="52.0" style="-fx-font-size: 24px; -fx-text-fill: #333;" text="Create Account" textFill="#9a9696" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="132.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icon/iconCircle.png" />
+               </image>
+            </ImageView>
+            <Icon content="PERSON" layoutX="34.0" layoutY="291.0" />
+            <Icon content="EMAIL" layoutX="34.0" layoutY="237.0" />
+            <Icon content="LOCK" layoutX="34.0" layoutY="347.0" />
+            <Icon content="EXIT_TO_APP" layoutX="347.0" layoutY="14.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
