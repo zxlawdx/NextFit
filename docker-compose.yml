@@ -1,22 +1,6 @@
-services:
-  javaapp:
-    build:
-      context: .
-      dockerfile: nextfit.dockerfile
-    command: ["./gradlew", "run"]
-    environment:
-      - DISPLAY=${DISPLAY}
-    volumes:
-      - .:/app
-      - /tmp/.X11-unix:/tmp/.X11-unix
-    depends_on:
-      - fastapi
-      - ollama
-    tty: true
-    stdin_open: true
-    networks:
-      - integration-net
+version: '3.8'
 
+services:
   fastapi:
     build:
       context: .

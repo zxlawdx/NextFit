@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="550.0" prefWidth="800.0" stylesheets="@css/FoodScreen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.RefeicaoScreen">
+    <children>
+        <Label layoutX="30.0" layoutY="20.0" text="Tipo de Refeição:" />
+        <ComboBox fx:id="tipoRefeicao" layoutX="150.0" layoutY="18.0" prefWidth="200.0" stylesheets="@css/FoodScreen.css" />
+
+        <Label layoutX="30.0" layoutY="60.0" text="Buscar Alimento:" />
+        <TextField fx:id="nomeAlimento" layoutX="150.0" layoutY="58.0" prefWidth="200.0" promptText="Ex: Arroz" />
+
+        <Label layoutX="30.0" layoutY="100.0" text="Tipo de Alimento:" />
+        <TextField fx:id="tipoAlimento" layoutX="150.0" layoutY="98.0" prefWidth="200.0" promptText="Ex: Fruta" />
+
+        <Label layoutX="380.0" layoutY="60.0" text="Max Kcal:" />
+        <TextField fx:id="maxKcal" layoutX="450.0" layoutY="58.0" prefWidth="80.0" promptText="Ex: 500" />
+
+        <Button fx:id="filtrarButton" layoutX="550.0" layoutY="56.0" text="Filtrar" />
+
+        <TableView fx:id="tableView" layoutX="30.0" layoutY="140.0" prefHeight="302.0" prefWidth="740.0">
+            <columns>
+               <TableColumn fx:id="idColumn" prefWidth="120.0" text="id" />
+               <TableColumn fx:id="nomeColumn" prefWidth="120.0" text="Nome" />
+               <TableColumn fx:id="tipoColumn" prefWidth="120.0" text="Tipo" />
+               <TableColumn fx:id="proteinasColumn" prefWidth="100.0" text="Proteínas" />
+               <TableColumn fx:id="carboidratosColumn" prefWidth="100.0" text="Carboidratos" />
+               <TableColumn fx:id="gordurasColumn" prefWidth="100.0" text="Gorduras" />
+               <TableColumn fx:id="kcalColumn" prefWidth="100.0" text="Kcal" />
+            </columns>
+        </TableView>
+
+        <Button fx:id="adicionarAlimento" layoutX="594.0" layoutY="470.0" onAction="#adicionarAlimento" text="Adicionar Alimento" />
+        <Button fx:id="CriarRefeicao" layoutX="33.0" layoutY="470.0" onAction="#criarRefeicao" text="Criar Refeição" />
+        <Button layoutX="650.0" layoutY="55.0" onAction="#back" text="Voltar" />
+    </children>
+</AnchorPane>

@@ -2,6 +2,9 @@ package dbsystem;
 
 import java.sql.*;
 
+/**
+ * Classe para gerenciamento da conexão com o banco SQLite.
+ */
 public class DatabaseConnector {
 
     private Connection conexao;
@@ -9,7 +12,10 @@ public class DatabaseConnector {
     // Caminho fixo do banco
     private static final String DATABASE_URL = "jdbc:sqlite:src/main/database/database_system.db";
 
-    // Conecta ao banco
+    /**
+     * Conecta ao banco de dados.
+     * @return true se conseguiu conectar, false caso contrário
+     */
     public boolean conectar() {
         try {
             if (this.conexao != null && !this.conexao.isClosed()) {
@@ -33,7 +39,10 @@ public class DatabaseConnector {
         }
     }
 
-    // Desconecta do banco
+    /**
+     * Desconecta do banco.
+     * @return true se desconectou com sucesso
+     */
     public boolean desconectar() {
         try {
             if (this.conexao != null && !this.conexao.isClosed()) {
@@ -48,40 +57,28 @@ public class DatabaseConnector {
         }
     }
 
-    // Cria a tabela de usuários, se não existir
-    public void criarTabelaUsuarios() {
-        String sql = """
-            CREATE TABLE IF NOT EXISTS usuarios (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nome TEXT NOT NULL,
-                email TEXT NOT NULL UNIQUE,
-                senha TEXT NOT NULL
-            );
-        """;
+    /**
+     * Cria a tabela de usuários se não existir.
+     */
 
-        try (Statement stmt = this.conexao.createStatement()) {
-            stmt.execute(sql);
-            System.out.println("📦 Tabela 'usuarios' criada ou já existente.");
-        } catch (SQLException e) {
-            System.err.println("Erro ao criar tabela de usuários: " + e.getMessage());
-        }
-    }
-
-    // Insere um novo usuário, se o e-mail ainda não estiver cadastrado
-    public boolean registrarUsuario(String nome, String email, String senha, int idade, double peso, double altura) {
+    /**
+     * Registra um novo usuário.
+     * @param nome nome do usuário
+     * @param email email do usuário
+     * @param senha senha do usuário
+     * @return true se inseriu com sucesso, false se email já existe ou erro
+     */
+    public boolean registrarUsuario(String nome, String email, String senha) {
         if (emailExiste(email)) {
             return false;
         }
-    
-        String insertSql = "INSERT INTO usuarios (nome, email, senha, idade, peso, altura) VALUES (?, ?, ?, ?, ?, ?)";
-    
+
+        String insertSql = "INSERT INTO Usuario (nome, email, senha) VALUES (?, ?, ?)";
+
         try (PreparedStatement stmt = this.conexao.prepareStatement(insertSql)) {
             stmt.setString(1, nome);
             stmt.setString(2, email);
             stmt.setString(3, senha);
-            stmt.setInt(4, idade);
-            stmt.setDouble(5, peso);
-            stmt.setDouble(6, altura);
             stmt.executeUpdate();
             System.out.println("✅ Usuário inserido com sucesso.");
             return true;
@@ -90,11 +87,14 @@ public class DatabaseConnector {
             return false;
         }
     }
-    
 
-    // Verifica se o e-mail já está na tabela
+    /**
+     * Verifica se o email já está cadastrado.
+     * @param email email a verificar
+     * @return true se email existe, false caso contrário
+     */
     private boolean emailExiste(String email) {
-        String checkEmailSql = "SELECT COUNT(*) FROM usuarios WHERE email = ?";
+        String checkEmailSql = "SELECT COUNT(*) FROM Usuario WHERE email = ?";
 
         try (PreparedStatement stmt = this.conexao.prepareStatement(checkEmailSql)) {
             stmt.setString(1, email);
@@ -106,14 +106,17 @@ public class DatabaseConnector {
         }
     }
 
-    // Retorna a conexão atual
     public Connection getConexao() {
         return this.conexao;
     }
 
-    // Conexão para chamadas estáticas simples
+    /**
+     * Método para obter conexão estática, útil para chamadas simples.
+     * @return conexão ativa ou null se falha
+     */
     public static Connection getConnection() {
         DatabaseConnector connector = new DatabaseConnector();
         return connector.conectar() ? connector.getConexao() : null;
     }
 }
+

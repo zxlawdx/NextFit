@@ -18,22 +18,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import com.google.gson.*;
 
-public class Chat {
+public class Chat implements AllMetodhs{
 
     @FXML private ScrollPane scrollPane;
     @FXML private TextArea txtPergunta;
     @FXML private VBox chatContainer;
 
-    @FXML
-    private void backToMainScreen(ActionEvent event){
-        ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
-    }
     
     @FXML
     private void onEnviarClick(){
         String pergunta = txtPergunta.getText();
         txtPergunta.clear();
-        // Cria um label para a pergunta e adiciona ao chat
         Label perguntaLabel = new Label("Você: " + pergunta);
         perguntaLabel.getStyleClass().add("chat-message-label");
         chatContainer.getChildren().add(perguntaLabel);
@@ -140,5 +135,10 @@ public class Chat {
         }
 
         return respostaCompleta.toString().trim();
+    }
+
+    @Override
+    public void back(ActionEvent event) {
+        ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
     }
 }

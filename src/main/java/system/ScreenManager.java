@@ -11,12 +11,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ScreenManager {
-    private static final String LoginXmlPath = "/system/login.fxml";
-    private static final String RegisterXmlPath = "/system/RegisterScreen.fxml";
-    private static final String DashbpardXmlPath = "/system/dashboard.fxml";
-    private static final String PerfilXmlPath =  "/system/perfil.fxml";
-    private static final String ChatXmlPath = "/system/chat.fxml";
-    private static final String RefeicaoXmlPath = "/system/refeicao.fxml";
+    private static final String LoginXmlPath = "/system/layouts/LoginScreen.fxml";
+    private static final String RegisterXmlPath = "/system/layouts/RegisterScreen.fxml";
+    private static final String DashbpardXmlPath = "/system/layouts/ManagerFoodScreen.fxml";
+    private static final String PerfilXmlPath =  "/system/layouts/PerfilScreen.fxml";
+    private static final String ChatXmlPath = "/system/layouts/ChatScreen.fxml";
+    private static final String RefeicaoXmlPath = "/system/layouts/FoodScreen.fxml";
+    private static final String AdicionarAlimentoPath = "/system/layouts/NewFoodScreen.fxml";
 
     public static void trocarTela(ActionEvent event, final String fxmlPath) {
         try {
@@ -52,6 +53,10 @@ public class ScreenManager {
 
     public static String getRefeicaoxmlpath() {
         return RefeicaoXmlPath;
+    }
+
+    public static String getAdicionaralimentopath() {
+        return AdicionarAlimentoPath;
     }
 }
 

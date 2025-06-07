@@ -8,8 +8,10 @@ version = '1.0'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://nexus.gluonhq.com/nexus/content/repositories/releases'
+    }
 }
-
 application {
     mainClassName = 'system.Main' // substitua pelo seu main
     applicationDefaultJvmArgs = [
@@ -21,8 +23,8 @@ application {
 
 
 javafx {
-    version = "21.0.2"
-    modules = ['javafx.controls', 'javafx.fxml']
+    version = "23.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
@@ -34,6 +36,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
     implementation 'com.jfoenix:jfoenix:9.0.10'
+
 }
 
 // Tarefa para rodar o servidor Python com FastAPI

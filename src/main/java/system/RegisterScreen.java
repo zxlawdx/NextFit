@@ -18,9 +18,6 @@ public class RegisterScreen {
     @FXML private TextField emailField;
     @FXML private TextField userField;
     @FXML private PasswordField passwordField;
-    @FXML private TextField idadeField;
-    @FXML private TextField pesoField;
-    @FXML private TextField alturaField;
     @FXML private Button buttonBackToLogin;
     @FXML private Button registerUserButton;
 
@@ -39,34 +36,19 @@ public class RegisterScreen {
         }
     }
 
+    @FXML
     public void backToLogin(ActionEvent event){
         ScreenManager.trocarTela(event, ScreenManager.getLoginxmlpath());
     }
 
+    @FXML
     public void createAccount(ActionEvent event) {
         String email = emailField.getText();
         String user = userField.getText();
         String password = passwordField.getText();
-        String idadeText = idadeField.getText();
-        String pesoText = pesoField.getText();
-        String alturaText = alturaField.getText();
-
         // Verifica se os campos obrigatórios foram preenchidos
-        if (email.isEmpty() || user.isEmpty() || password.isEmpty() || idadeText.isEmpty() || pesoText.isEmpty() || alturaText.isEmpty()) {
+        if (email.isEmpty() || user.isEmpty() || password.isEmpty()) {
             System.out.println("❌ Preencha todos os campos!");
-            return;
-        }
-
-        int idade;
-        double peso;
-        double altura;
-
-        try {
-            idade = Integer.parseInt(idadeText);
-            peso = Double.parseDouble(pesoText);
-            altura = Double.parseDouble(alturaText);
-        } catch (NumberFormatException e) {
-            System.out.println("❌ Idade, peso e altura precisam ser números válidos!");
             return;
         }
 
@@ -76,7 +58,7 @@ public class RegisterScreen {
         }
 
         try {
-            boolean sucesso = connector.registrarUsuario(user, email, password, idade, peso, altura);
+            boolean sucesso = connector.registrarUsuario(user, email, password);
             if (sucesso) {
                 System.out.println("✅ Conta criada com sucesso!");
                 ScreenManager.trocarTela(event, ScreenManager.getLoginxmlpath());

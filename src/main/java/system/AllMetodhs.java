@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 
 public interface AllMetodhs {
 
-    // void init();
     @FXML
     void back(ActionEvent event);
 

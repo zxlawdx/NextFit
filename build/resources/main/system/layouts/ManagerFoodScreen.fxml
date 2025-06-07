@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@css/ManagerFoodScreen.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="system.DashboardController">
+
+    <left>
+        <VBox fx:id="sidebar" alignment="TOP_CENTER" prefWidth="200.0" spacing="10.0" style="-fx-background-color: white;" styleClass="sidebar" stylesheets="@css_pronto/ManagerFood.css">
+            <Label styleClass="sidebar-title" text="NextFit" />
+            <Separator />
+            <Button style="-fx-text-fill: #616161;" styleClass="sidebar-button" text="Dashboard" />
+            <Button onAction="#novaRefeicao" style="-fx-text-fill: #616161;" styleClass="sidebar-button" text="Nova Refeição" />
+            <Button style="-fx-text-fill: #616161;" styleClass="sidebar-button" text="Histórico" />
+            <Button onAction="#perfil" style="-fx-text-fill: #616161;" styleClass="sidebar-button" text="Perfil" />
+            <Button fx:id="btnChat" onAction="#chat" style="-fx-text-fill: #616161;" styleClass="sidebar-button" text="Chat" />
+            <Button fx:id="btnSair" onAction="#back" style="-fx-text-fill: #616161;" styleClass="sidebar-button" text="Sair" />
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" stylesheets="@css_pronto/ManagerFood.css">
+            <content>
+                <AnchorPane fx:id="root">
+                    <children>
+                        <!-- Cartão de Meta Diária -->
+                       <AnchorPane fx:id="metaCard" layoutX="50.0" layoutY="49.0" prefHeight="185.0" prefWidth="572.0" styleClass="meta-card">
+                            <children>
+                                <Label fx:id="labelTitulo" layoutX="22.0" layoutY="5.0" styleClass="label-title" text="Meta Diária">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="labelProteinas" layoutX="34.0" layoutY="36.0" prefHeight="45.0" prefWidth="140.0" styleClass="label-info" text="Proteínas: 150 g" />
+                                <Label fx:id="labelCarboidratos" layoutX="34.0" layoutY="126.0" prefHeight="45.0" prefWidth="163.0" styleClass="label-info" text="Carboidratos: 250 g" />
+                        <Label fx:id="labelProteinas1" layoutX="34.0" layoutY="81.0" prefHeight="45.0" prefWidth="137.0" styleClass="label-info" text="Kcal: 2000 kcal" />
+                        <Label layoutX="197.0" layoutY="36.0" prefHeight="45.0" prefWidth="109.0" styleClass="label-info" text="Gorduras: 25 g" />
+                            </children>
+                        </AnchorPane>
+
+                        <!-- Tabela de Refeições -->
+                        <TitledPane collapsible="false" expanded="true" layoutX="41.0" layoutY="276.0" prefHeight="232.0" prefWidth="617.0" styleClass="titled-pane" text="Refeições de Hoje">
+                            <content>
+                                <TableView fx:id="tabelaRefeicoes" prefHeight="200.0" prefWidth="800.0" styleClass="table-view">
+                                    <columns>
+                                        <TableColumn fx:id="colunaHorario" prefWidth="100.0" text="Horário" />
+                                        <TableColumn fx:id="colunaNome" prefWidth="250.0" text="Nome" />
+                                        <TableColumn fx:id="colunaCalorias" prefWidth="100.0" text="Calorias" />
+                                        <TableColumn fx:id="colunaAcoes" prefWidth="150.0" text="Ações" />
+                                    </columns>
+                                </TableView>
+                            </content>
+                        </TitledPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

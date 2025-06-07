@@ -1,7 +1,6 @@
 package system;
 
 import dbsystem.DatabaseConnector;
-import dbsystem.CreateTablesManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,9 +16,7 @@ public class Main extends Application {
     
         try {
             if (db.conectar()) {
-                db.criarTabelaUsuarios();
-                CreateTablesManager tables = new CreateTablesManager(db.getConexao());
-                tables.criarTabelasExtras();
+                System.out.println("conexão bem sucedida");
             } else {
                 System.err.println("❌ Erro ao conectar ao banco de dados.");
                 return;
@@ -35,9 +32,10 @@ public class Main extends Application {
     
             // Adiciona o ícone do app
             stage.getIcons().add(new javafx.scene.image.Image(getClass().getResourceAsStream("/system/background/iconApp.png")));
-    
+            
             stage.setMinWidth(600);
             stage.setMinHeight(400);
+            stage.setResizable(false);
             stage.show();
     
         } catch (Exception e) {

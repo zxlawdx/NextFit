@@ -18,6 +18,6 @@
     "/opt/javafx/javafx-sdk-21.0.2/lib/*.jar"
   ],
   "files.autoSave": "afterDelay",
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "automatic"
 
 }

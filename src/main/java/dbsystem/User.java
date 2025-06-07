@@ -26,17 +26,17 @@ public class User {
         this.altura = altura;
     }
 
-    // Getters
+   
     public int getIdade() { return idade; }
     public double getPeso() { return peso; }
     public double getAltura() { return altura; }
 
-    // Setters
     public void setIdade(int idade) { this.idade = idade; }
     public void setPeso(double peso) { this.peso = peso; }
     public void setAltura(double altura) { this.altura = altura; }
-
-
+    public int getId() {
+        return id;
+    }
     public void setFotoPerfil(String fotoPerfil) {
         this.fotoPerfil = fotoPerfil;
     }
@@ -48,20 +48,26 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
+
     public String getEmail() {
         return email;
     }
+
     public String getPassword() {
         return password;
     }
+
     public String getUsername() {
         return username;
     }
+    
 
 }

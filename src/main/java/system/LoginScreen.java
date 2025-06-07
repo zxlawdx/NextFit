@@ -22,33 +22,42 @@ public class LoginScreen {
     @FXML private Button loginButton;
     @FXML private Label statusLabel;
     @FXML private Button logonButton;
+   
+
     private Connection connection;
 
     @FXML
     private void initialize() {
-        connection = DatabaseConnector.getConnection(); // obtém conexão
+        connection = DatabaseConnector.getConnection();
+    }
 
-        loginButton.setOnAction(event -> {
-            String email = emailField.getText();
-            String password = passwordField.getText();
+    @FXML
+    private void signin(ActionEvent event){
+        String email = emailField.getText();
+        String password = passwordField.getText();
 
-            if (validarLogin(email, password)) {
-                statusLabel.setText("✅ Login bem-sucedido!");
-                System.out.println("Usuário autenticado!");
-                ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
-            } else {
-                statusLabel.setText("❌ Login inválido.");
-                System.out.println("Falha no login.");
-            }
-        });
+        // if (email.isEmpty() || password.isEmpty()) {
+        //     statusLabel.setText("❗ Preencha todos os campos.");
+        //     return;
+        // }
 
-        logonButton.setOnAction(event -> {
-            ScreenManager.trocarTela(event, ScreenManager.getRegisterxmlpath());
-        });
+        if (validarLogin(email, password)) {
+            statusLabel.setText("✅ Login bem-sucedido!");
+            System.out.println("Usuário autenticado!");
+            ScreenManager.trocarTela(event, ScreenManager.getDashbpardxmlpath());
+        } else {
+            statusLabel.setText("❌ Login inválido.");
+            System.out.println("Falha no login.");
+        }
+    }
+
+    @FXML
+    private void signup(ActionEvent event){
+        ScreenManager.trocarTela(event, ScreenManager.getRegisterxmlpath());
     }
 
     private boolean validarLogin(String email, String senha) {
-        String sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+        String sql = "SELECT * FROM Usuario WHERE email = ? AND senha = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, email);
@@ -56,23 +65,22 @@ public class LoginScreen {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                // Se encontrou o usuário, cria o objeto User
                 User user = new User();
                 user.setEmail(rs.getString("email"));
                 user.setUsername(rs.getString("nome"));
                 user.setPassword(rs.getString("senha"));
-                user.setIdade(rs.getInt("idade"));    // <-- Adicionado
-                user.setPeso(rs.getDouble("peso"));   // <-- Adicionado
-                user.setAltura(rs.getDouble("altura"));// <-- Adicionado
-                user.setFotoPerfil(rs.getString("fotoPerfil")); // Foto
+                user.setIdade(rs.getInt("idade"));
+                user.setPeso(rs.getDouble("peso"));
+                user.setAltura(rs.getDouble("altura"));
+                user.setFotoPerfil(rs.getString("fotoPerfil"));
 
                 Session.setCurrentUser(user);
                 return true;
             }
-            return false;
         } catch (SQLException e) {
             System.err.println("Erro ao validar login: " + e.getMessage());
-            return false;
         }
+
+        return false;
     }
 }
